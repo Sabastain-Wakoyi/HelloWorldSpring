@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <bean id="learner" class="org.snva.helloworld.beans.Role">
+    <property name="roleId" value="1"/>
+    <property name="roleName" value="learner!"/>
+    <property name="roleDescription" value="just a learner!"/>
+    </bean>
+
+    <bean id="architect" class="org.snva.helloworld.beans.Role">
+        <property name="roleId" value="2"/>
+        <property name="roleName" value="architect%"/>
+        <property name="roleDescription" value="just an architect"/>
+    </bean>
+
+    <bean id="admin" class="org.snva.helloworld.beans.Role">
+        <property name="roleId" value="3"/>
+        <property name="roleName" value="admin~"/>
+        <property name="roleDescription" value="just an admin~"/>
+    </bean>
+
+
+
+    <bean id="sabas" class="org.snva.helloworld.beans.User">
+        <property name="role" >
+            <list value-type="org.snva.helloworld.beans.Role"><ref bean="admin"></ref> </list>
+        </property>
+        <property name="userId" value="1l"/>
+        <property name="userName" value="Sab"/>
+        <property name="firstName" value="Sabas"/>
+        <property name="lastName" value="abas"/>
+        <property name="email" value="sabas@snva.com"/>
+        <property name="password" value="123345"/>
+        <property name="contact" value="210-789-5566"/>
+
+    </bean>
+</beans>
