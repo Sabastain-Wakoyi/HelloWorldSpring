@@ -39,4 +39,12 @@ public class Role {
                 ", roleDescription='" + roleDescription + '\'' +
                 '}';
     }
+
+    public void init(){
+        System.out.println("Role has been created");
+    }
+
+    public void destroy(){
+        System.out.println(this.roleName + "with has been destroyed" );
+    }
 }

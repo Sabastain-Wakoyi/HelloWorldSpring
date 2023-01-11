@@ -6,7 +6,7 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 
-    <bean id="learner" class="org.snva.helloworld.beans.Role">
+    <bean id="learner" lazy-init="true" class="org.snva.helloworld.beans.Role" init-method="init" destroy-method="destroy">
     <property name="roleId" value="1"/>
     <property name="roleName" value="learner!"/>
     <property name="roleDescription" value="just a learner!"/>
