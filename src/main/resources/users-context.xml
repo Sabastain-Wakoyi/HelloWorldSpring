@@ -6,37 +6,62 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 
-    <bean id="learner" lazy-init="true" class="org.snva.helloworld.beans.Role" init-method="init" destroy-method="destroy">
-    <property name="roleId" value="1"/>
-    <property name="roleName" value="learner!"/>
-    <property name="roleDescription" value="just a learner!"/>
+<!--    <bean id="learner" lazy-init="true" class="org.snva.helloworld.beans.Role" init-method="init" destroy-method="destroy">-->
+<!--    <property name="roleId" value="1"/>-->
+<!--    <property name="roleName" value="learner!"/>-->
+<!--    <property name="roleDescription" value="just a learner!"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="architect" class="org.snva.helloworld.beans.Role">-->
+<!--        <property name="roleId" value="2"/>-->
+<!--        <property name="roleName" value="architect%"/>-->
+<!--        <property name="roleDescription" value="just an architect"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="admin" class="org.snva.helloworld.beans.Role">-->
+<!--        <property name="roleId" value="3"/>-->
+<!--        <property name="roleName" value="admin~"/>-->
+<!--        <property name="roleDescription" value="just an admin~"/>-->
+<!--    </bean>-->
+
+
+
+<!--    <bean id="sabas" class="org.snva.helloworld.beans.User">-->
+<!--        <property name="role" >-->
+<!--            <list value-type="org.snva.helloworld.beans.Role"><ref bean="admin"></ref> </list>-->
+<!--        </property>-->
+<!--        <property name="userId" value="1l"/>-->
+<!--        <property name="userName" value="Sab"/>-->
+<!--        <property name="firstName" value="Sabas"/>-->
+<!--        <property name="lastName" value="abas"/>-->
+<!--        <property name="email" value="sabas@snva.com"/>-->
+<!--        <property name="password" value="123345"/>-->
+<!--        <property name="contact" value="210-789-5566"/>-->
+
+<!--    </bean>-->
+<!--</beans>-->
+
+
+<!--bean inheritance-->
+
+
+    <bean id="user" class="org.snva.helloworld.beans.Role">
+        <property name="learner" value="learning"/>
+        <property name="instructor" value="instruction"/>
     </bean>
 
-    <bean id="architect" class="org.snva.helloworld.beans.Role">
-        <property name="roleId" value="2"/>
-        <property name="roleName" value="architect%"/>
-        <property name="roleDescription" value="just an architect"/>
+    <bean id="user1" class="org.snva.helloworld.beans.Role">
+        <property name="learner" value="learning"/>
+        <property name="instructor" value="instruction"/>
+        <property name="reason" value="I love Jesus"/>
     </bean>
 
-    <bean id="admin" class="org.snva.helloworld.beans.Role">
-        <property name="roleId" value="3"/>
-        <property name="roleName" value="admin~"/>
-        <property name="roleDescription" value="just an admin~"/>
+    <bean id="user2" class="org.snva.helloworld.beans.Role" parent="user1">
+        <property name="reason" value="I am a Jevian"/>
     </bean>
 
-
-
-    <bean id="sabas" class="org.snva.helloworld.beans.User">
-        <property name="role" >
-            <list value-type="org.snva.helloworld.beans.Role"><ref bean="admin"></ref> </list>
-        </property>
-        <property name="userId" value="1l"/>
-        <property name="userName" value="Sab"/>
-        <property name="firstName" value="Sabas"/>
-        <property name="lastName" value="abas"/>
-        <property name="email" value="sabas@snva.com"/>
-        <property name="password" value="123345"/>
-        <property name="contact" value="210-789-5566"/>
-
+    <bean id="gift" class="org.snva.helloworld.beans.Role" parent="user">
+        <property name="reason" value="Yes"/>
     </bean>
+
 </beans>
